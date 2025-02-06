@@ -7,4 +7,9 @@
     <string name="good_afternoon">Good Afternoon, %s</string>
     <string name="good_evening">Good Evening, %s</string>
     <string name="user_name">User</string>
+    <string name="rotina">Rotina</string>
+    <string name="today_routine">Today - %1$s</string>
+    <string name="today_rest_day">Today - Rest Day</string>
+    <string name="add_routine">Add Routine</string>
+    <string name="search_routines">Search Routines</string>
 </resources>

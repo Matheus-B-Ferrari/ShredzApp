@@ -6,37 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.WorkoutFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!-- Greeting Text -->
     <TextView
         android:id="@+id/greetingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Good Afternoon, User"
+        android:layout_width="225dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:text="Boa tarde, User"
         android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Stats Display -->
+    <!-- Stats Display (Volume Máximo) -->
     <TextView
         android:id="@+id/statsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Volume Máximo: 3302 kg"
+        android:text="Maximum Volume: 3302 kg"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/greetingText"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +34,7 @@
         android:id="@+id/routineText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hoje - Rotina 2"
+        android:text="Today - Routine 1"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/statsText"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +45,89 @@
         android:id="@+id/startRoutineButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Routine"
+        android:text="Start"
         app:layout_constraintTop_toBottomOf="@id/routineText"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp" />
+
+    <!-- Calendar Horizontal -->
+    <HorizontalScrollView
+        android:id="@+id/horizontal_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/startRoutineButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:id="@+id/calendar_linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Add more TextViews for other dates -->
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Container for Button + Date + Search Icon -->
+    <LinearLayout
+        android:id="@+id/add_routine_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_calendar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <!-- Button with Plus Icon to Add Routine/Training -->
+        <ImageButton
+            android:id="@+id/add_routine_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_add"
+            android:contentDescription="@string/add_routine"
+            app:tint="@color/black" />
+
+        <!-- Current Date Text (e.g., 5 de Fev. de 2025) -->
+        <TextView
+            android:id="@+id/current_date_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:text="5 de Fev. de 2025"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:gravity="center" />
+
+        <!-- Search Icon (Lupa) -->
+        <ImageButton
+            android:id="@+id/search_routines_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginStart="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_search"
+            android:contentDescription="@string/search_routines"
+            app:tint="@color/black" />
+
+    </LinearLayout>
+
+    <!-- Routine List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/routine_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_routine_container" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
